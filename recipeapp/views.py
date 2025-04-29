@@ -58,7 +58,7 @@ def recipeDetail(request):
         "content":rd[8],
         "poster":rd[9]
     }
-    fm=rmake.split("\n")
+    fm=rmake.split("\n") #[]
     posters=[]
     make=[]
     #재료 => ,

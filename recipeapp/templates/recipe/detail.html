@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style type="text/css">
+        .container{
+          margin-top:50px;
+        }
+        .row{
+          margin:0px auto;
+          width:960px;
+        }
+    </style>
 </head>
 <body>
- {{rd}}
+  <div class="container">
+      <div class="row">
+         <table class="table">
+             <tr>
+                 <td colspan="3" class="text-center">
+                     <img src="{{rd.detail.poster}}"
+                          style="width:800px;height:250px">
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="3" class="text-center">
+                     <h3>{{rd.detail.title}}</h3>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="3" class="text-center">
+                     {{rd.detail.content}}
+                 </td>
+             </tr>
+             <tr>
+                 <td class="text-center">{{rd.detail.info1}}</td>
+                 <td class="text-center">{{rd.detail.info2}}</td>
+                 <td class="text-center">{{rd.detail.info3}}</td>
+             </tr>
+         </table>
+      </div>
+  </div>
 </body>
 </html>
