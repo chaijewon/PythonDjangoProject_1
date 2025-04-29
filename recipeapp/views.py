@@ -61,6 +61,7 @@ def recipeDetail(request):
     fm=rmake.split("\n") #[]
     posters=[]
     make=[]
+    #make=[]
     #재료 => ,
     data=rdata.split(",")
 
@@ -69,13 +70,16 @@ def recipeDetail(request):
         print(temp)
         make.append(temp[0])
         posters.append(temp[1])
+
+    mm=zip(make,posters)
     detail={
         "detail":recipe_data,
-        "posters":posters,
-        "make":make,
+        "mm":mm,
         "data":data
     }
+
     print(detail)
+
     return render(request,
                   "recipe/detail.html",{
         "rd":detail

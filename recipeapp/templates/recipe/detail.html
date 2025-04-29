@@ -40,6 +40,36 @@
                  <td class="text-center">{{rd.detail.info3}}</td>
              </tr>
          </table>
+          <table class="table">
+              <tr>
+                  <td><h3>[재료]</h3></td>
+              </tr>
+              <tr>
+                  <td>
+                      <ul>
+                          {% for d in rd.data %}
+                          <li>{{d}}</li>
+                          {% endfor %}
+                      </ul>
+                  </td>
+              </tr>
+          </table>
+          <table class="table">
+              <tr>
+                  <td>
+                      {% for m,p in rd.mm %}
+                      <table class="table">
+                          <tr>
+                              <td width="80%" class="text-left">{{m}}</td>
+                              <td width="20%" class="text-right">
+                                  <img src="{{p}}" style="width:130px;height:100px">
+                              </td>
+                          </tr>
+                      </table>
+                      {% endfor %}
+                  </td>
+              </tr>
+          </table>
       </div>
   </div>
 </body>
