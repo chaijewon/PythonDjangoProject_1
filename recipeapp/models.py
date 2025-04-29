@@ -47,3 +47,38 @@ def recipeListData(page):
     finally:
         disConnection(conn,cur)
     return list,total[0]
+'''
+NO           NOT NULL NUMBER         
+POSTER       NOT NULL VARCHAR2(4000) 
+TITLE        NOT NULL VARCHAR2(1000) 
+CHEF         NOT NULL VARCHAR2(1000) 
+CHEF_POSTER  NOT NULL VARCHAR2(1000) 
+CHEF_PROFILE NOT NULL VARCHAR2(1000) 
+INFO1        NOT NULL VARCHAR2(100)  
+INFO2        NOT NULL VARCHAR2(100)  
+INFO3        NOT NULL VARCHAR2(100)  
+CONTENT      NOT NULL VARCHAR2(4000) 
+FOODMAKE     NOT NULL CLOB           
+DATA                  CLOB     
+'''
+def recipeDetailData(no):
+    try:
+        conn=getConnection()
+        cur=conn.cursor()
+        sql=f"""
+               SELECT no,title,chef,chef_poster,chef_profile,
+               info1,info2,info3,content,poster,foodmake,data
+               FROM recipedetail
+               WHERE no={no}
+            """
+        cur.execute(sql)
+        recipe_detail=cur.fetchone()
+        #CLOB (Object => str)
+        rmake=''.join(recipe_detail[-2].read())
+        rdata=''.join(recipe_detail[-1].read())
+    except Exception as e:
+        print(e)
+    finally:
+        disConnection(conn,cur)
+
+    return recipe_detail,rmake,rdata

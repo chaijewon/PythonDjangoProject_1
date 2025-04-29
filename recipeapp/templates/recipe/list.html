@@ -20,15 +20,35 @@
           {% for r in rd %}
           <div class="col-md-3">
             <div class="thumbnail">
-              <a href="#">
+              <a href="/recipe/recipe_detail/?no={{r.no}}">
                 <img src={{r.poster}} title={{r.title}} style="width:230px;height:130px">
                 <div class="caption">
                   <p>{{r.chef}}</p>
                 </div>
               </a>
             </div>
+
           </div>
           {% endfor %}
+      </div>
+      <div style="height:10px"></div>
+      <div class="row text-center">
+        <ul class="pagination">
+            <!-- <c:if test=""> -->
+            {% if startPage > 1 %}
+            <li><a href="../recipe_list/?page={{startPage|add:-1}}">&lt;</a></li>
+            {% endif %}
+            {% for i in range %}
+              {% if curpage == i %}
+                 <li class="active"><a href="../recipe_list/?page={{i}}">{{i}}</a></li>
+              {% else %}
+                 <li><a href="../recipe_list/?page={{i}}">{{i}}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if endPage < totalpage %}
+            <li><a href="../recipe_list/?page={{endPage|add:1}}">&gt;</a></li>
+            {% endif %}
+        </ul>
       </div>
   </div>
 </body>
